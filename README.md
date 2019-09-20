@@ -1,2 +1,2 @@
-# ExchangeShell
-Usefull scripts to manage Exchange Online and Exchange Server
+# Exchange Management Shell
+Usefull scripts to manage Exchange Online and Exchange Server using EMS
