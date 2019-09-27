@@ -1,5 +1,5 @@
 # Exchange Management Shell
-Usefull scripts to manage Exchange Online and Exchange Server using EMS
+Useful scripts to manage Exchange Online and Exchange Server using EMS
 
 ## Notation
 * EMS: Exchange Management Shell
