@@ -1,4 +1,4 @@
-#Convert Mailbox Object to Contact Object retaining legacyExchangDN attribute as x500 address
+# Convert Mailbox Object to Contact Object retaining legacyExchangDN attribute as x500 address
 
 $DomainController = (Get-ADServerSettings).DefaultConfigurationDomainController.domain
  
@@ -13,7 +13,8 @@ ForEach ($Mbx in $MailboxList) {
 	Disable-Mailbox -Id $mailbox.Identity -Confirm:$False -DomainController $DomainController
 	Start-Sleep -Seconds 30
 	$smtp = $mailbox.primarysmtpaddress.local + "@domain.com"
-	$contact = New-MailContact -alias $mailbox.alias -Name $mailbox.name -ExternalEmailAddress $smtp -OrganizationalUnit "OU=ExternalUsers,DC=domain,DC=com" -DomainController $DomainController
+	$contact = New-MailContact -alias $mailbox.alias -Name $mailbox.name -ExternalEmailAddress $smtp `
+		-OrganizationalUnit "OU=ExternalUsers,DC=domain,DC=com" -DomainController $DomainController
 	
 	Set-MailContact -Id $contact -EmailAddresses $EmailAddresses -EmailAddressPolicyEnabled $False -DomainController $DomainController
 }
